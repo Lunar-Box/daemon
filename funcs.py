@@ -7,7 +7,7 @@ import requests
 def start(id):
     container = client.containers.get(id)
     container.start()
-    output = container.exec_run("pip3 install pyqt", tty=True, user="server", workdir="/home/server")
+    output = container.exec_run("lspcie", tty=True, user="server", workdir="/home/server")
     out1 = output.output.decode('utf-8').replace("\n", "<br>")
     out2 = out1.replace("\r", "")
     return f"{out2}<br>EXITED({output.exit_code})"
